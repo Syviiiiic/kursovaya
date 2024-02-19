@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block title %}Subjects{% endblock %}
+
+{% block content %}
+<h1>Subjects</h1>
+    <div class="subject">
+        {% for subject in subjects %}
+        <div class="title-sub">
+
+            <!-- <div class="profile">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-square" viewBox="0 0 16 16">
+                  <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                  <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm12 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1v-1c0-1-1-4-6-4s-6 3-6 4v1a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12z"/>
+                </svg>
+            </div> -->
+
+            <h2 class="title_link">
+                <a href="{{ subject.get_absolute_url }}">{{ subject.title }}</a>
+                #{{subject.category}}
+            </h2>
+            <p class="date">
+                Published {{ subject.publish }} by <b>{{ subject.author }}</b>
+            </p>
+            
+            {{ subject.body|truncatewords:30|linebreaks }}
+            
+            <div class="like_and_total_comments">
+                <div class="like_img">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314"/>
+                      </svg>
+                </div>
+                
+                <div class="like_count">
+                    {{subject.num_likes}}
+                </div>
+
+                <div class="comments_total_img">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-dots-fill" viewBox="0 0 16 16">
+                        <path d="M16 8c0 3.866-3.582 7-8 7a9.06 9.06 0 0 1-2.347-.306c-.584.296-1.925.864-4.181 1.234-.2.032-.352-.176-.273-.362.354-.836.674-1.95.77-2.966C.744 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7M5 8a1 1 0 1 0-2 0 1 1 0 0 0 2 0m4 0a1 1 0 1 0-2 0 1 1 0 0 0 2 0m3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2"/>
+                      </svg>
+                </div>
+
+                <div class="comments_total_count">
+                    {{subject.comments.count}}
+                </div>
+                
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% include 'pagination.html' with page=page_obj %}
+{% endblock %}

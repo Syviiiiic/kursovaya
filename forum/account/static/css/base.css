@@ -1,0 +1,216 @@
+@import url(//fonts.googleapis.com/css?family=Muli);
+
+body {
+    margin:0;
+    padding:0;
+    font-family:helvetica, sans-serif;
+}
+
+
+p {
+    line-height: 1.8;
+    margin-top: 2px;
+    margin-bottom: 5px;
+}
+
+p.info {
+    margin-bottom: 1px;
+}
+
+p.date {
+    margin-bottom: 0px;
+}
+
+
+a {
+    color:#1586de;
+    text-decoration:none;
+}
+
+
+a:hover {
+    color:#1586de;
+}
+
+h1, h2, h3, h4, h5 , h6 { font-family: 'Muli', sans-serif; font-weight:normal; margin: 0px;}
+
+h1 {
+    border-bottom:1px solid #bbb;
+    padding:0 0 10px 0;
+    margin:10px 0 10px 0;
+}
+
+h2.title_link {
+    padding-top: 5px;
+}
+
+
+ol {
+    line-height:1.5;
+}
+
+
+
+div.title-sub {
+    background-color: rgba(170, 170, 170, 0.263);
+    border-radius: 10px;
+    padding-left: 10px;
+}
+
+
+div.like_and_total_comments {
+    margin-bottom: 10px;
+    display: flex;
+}
+
+div.like_count {
+    margin-left: 3px;
+    margin-right: 5px;
+}
+
+div.comments_total_count {
+    margin-left: 3px;
+}
+
+
+#header {
+    padding:10px 100px;
+    font-size:14px;
+    background:#1586de;
+    color:#fff;
+    border-bottom:4px solid #1586de;
+    overflow:auto;
+}
+
+#header .logo {
+    font-family: 'Muli', sans-serif;
+    float:left;
+    color:#f3f7cc;
+    font-size:20px;
+    margin-right:10%;
+}
+
+#header ul.menu {
+    list-style:none;
+    float:left;
+    margin:0;
+    padding:0;
+}
+#header ul.menu li {
+    float:left;
+    padding:4px 10px;
+}
+
+#header ul.menu li.selected a, #header ul.menu li.selected a:hover {
+    color:#1d2a72;
+    font-weight:bold;
+}
+
+#header a {
+    color:#0011ff;
+}
+#header a:hover {
+    color:#fff;
+}
+
+#header .user {
+    float:right;
+    padding-top:4px;
+}
+
+
+#content {
+    padding:30px 100px;
+}
+
+/* forms */
+form {
+    overflow:auto;
+}
+
+form p {
+    width:100%;
+    overflow:auto;
+}
+
+label {
+    float:left;
+    clear:both;
+    color:#333;
+    margin-bottom:4px;
+}
+input, textarea {
+    clear:both;
+    float:left;
+    margin:0 0 10px;
+    background:#efefef;
+    border:0;
+    padding:6px 10px;
+    font-size:14px;
+}
+input[type=submit], a.button {
+    font-weight:bold;
+    background:#1586de;
+    color:#fff;
+    padding:10px 20px;
+    font-size:14px;
+    text-transform:uppercase;
+}
+
+
+.login-form {
+    float:left;
+}
+
+
+#sidebar { 
+    float:right;
+    position: relative;
+    width:25%;
+    padding:10px;
+    background:#efefef; 
+    height:100%;
+}
+
+h2.bar_h {
+    padding: 0px 0px 10px 0px;
+}
+
+#content { 
+    float:left;
+    width:60%;
+    padding:0 0 0 35px; 
+}
+
+
+.comment {
+    background-color: rgba(170, 170, 170, 0.263);
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 5px 0 0 5px; 
+}
+.comment:nth-child(even) {
+    background:rgb(239, 239, 239);
+}
+.comment .info {
+    font-weight:bold;
+    font-size:12px;
+    color:#666;
+}
+
+
+.pagination {
+    font-weight: bold;
+    padding-left: 500px;
+}
+
+
+.content {
+    overflow-y: scroll;
+}
+
+div.form_com {
+    margin-top: 20px;
+}
+

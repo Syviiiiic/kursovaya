@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{% block title %}{% endblock %}</title>
+  <link href="{% static "css/base.css" %}" rel="stylesheet">
+</head>
+<body>
+    <div id="header">
+      <span class="logo"><a href="{% url 'main_page:subjects_list' %}">My Forum</a></span>
+        <span class="user">
+          {% if request.user.is_authenticated %}
+            {{ request.user.first_name|default:request.user.username }}
+            <a href="{% url "account:logout" %}">Logout</a>
+          {% else %}
+            <a href="{% url "account:login" %}">Log-in</a>
+          {% endif %}
+        </span>
+
+    </div>
+    <div id="content">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <div id="sidebar">
+        <h2 class="bar_h">My Forum</h2>
+        <h3><a href="{% url 'main_page:subject_create' %}">Создать пост</a></h3>
+      </div>
+</body>
+</html>

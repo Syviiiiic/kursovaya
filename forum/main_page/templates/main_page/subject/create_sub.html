@@ -3,11 +3,19 @@
 {% block title %}Create subject{% endblock %}
 
 {% block content %}
-    <h1>Create new subject</h1>
-    <p>Enter informations about your subject</p>
-    <form action="." method="post">
-        {{ subject_form.as_p }}
-        {% csrf_token %}
-        <p><input type="submit" value="Save"></p>
-    </form>
+    <div class="create-sub">
+        <div class="create-sub-box" style="background: #081B29; border-radius: 30px; border: 6px #00ABF0 solid">
+            <div class="create-sub-block">
+                <div class="create-sub-title"><h1>Create new subject.</h1></div>
+                <div class="create-sub-enter"><p>Enter informations about your subject</p></div>
+                <div class="create-sub-form">
+                    <form action="." method="post">
+                        {{ subject_form.as_p }}
+                        {% csrf_token %}
+                        <p><input class="create-sub-save" type="submit" value="Save"></p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}

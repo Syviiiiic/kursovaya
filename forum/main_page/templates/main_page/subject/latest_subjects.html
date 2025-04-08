@@ -1,0 +1,7 @@
+<ul class="lists-new-content">
+    {% for subject in latest_subjects %}
+    <li>
+        <a href="{{ subject.get_absolute_url }}">{{ subject.title|truncatewords_html:10 }}</a>
+    </li>
+    {% endfor %}
+</ul>

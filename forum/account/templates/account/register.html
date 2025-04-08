@@ -3,11 +3,16 @@
 {% block title %}Register{% endblock %}
 
 {% block content %}
-    <h1>Create your account</h1>
-    <p>Enter information in form:</p>
-    <form method="post">
-        {{ user_form.as_p }}
-        {% csrf_token %}
-        <p><input type="submit" value="Create account"></p>
-    </form>
+    <div class="registration-block">
+        <div class="registration-box" style="width: 544px; height: 380px; background: #081B29; border-radius: 30px; border: 6px #00ABF0 solid">
+            <div class="registration-title"><h1>Create your account.</h1></div>
+            <div class="registration-form-title"><p>Enter information in form:</p></div>
+            <div class="registration-form"><form method="post">
+                {{ user_form.as_p }}
+                {% csrf_token %}
+                <div class="registration-sign-box"><p><input class="sign-box" type="submit" value="Create account"></p></div>
+            </form>
+            </div>
+        </div>
+    </div>
 {% endblock %}

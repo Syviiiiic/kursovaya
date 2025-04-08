@@ -7,13 +7,15 @@
 </head>
 <body>
     <div id="header">
-      <span class="logo"><a href="{% url 'main_page:subjects_list' %}">My Forum</a></span>
+      <span class="logo"><a href="{% url 'main_page:subjects_list' %}"><b>IT Forum.</b></a></span>
         <span class="user">
           {% if request.user.is_authenticated %}
-            {{ request.user.first_name|default:request.user.username }}
-            <a href="{% url "account:logout" %}">Logout</a>
+            <a class="create-post" href="{% url 'main_page:subject_create' %}">Create post.</a>
+            <a class="profile-name" href="#">{{ request.user.first_name|default:request.user.username }}</a>
+            <a class="user-logout-link" href="{% url "account:logout" %}">Logout.</a>
           {% else %}
-            <a href="{% url "account:login" %}">Log-in</a>
+            <a class="user-login-link" href="{% url "account:login" %}">Log-in.</a>
+            
           {% endif %}
         </span>
 
@@ -23,9 +25,5 @@
         {% endblock %}
     </div>
 
-    <div id="sidebar">
-        <h2 class="bar_h">My Forum</h2>
-        <h3><a href="{% url 'main_page:subject_create' %}">Создать пост</a></h3>
-      </div>
 </body>
 </html>

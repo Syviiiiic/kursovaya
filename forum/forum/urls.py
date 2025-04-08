@@ -1,4 +1,3 @@
-
 from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
@@ -12,7 +11,7 @@ router.register(r'subjectlist', views.SubjectViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('subject/', include('main_page.urls'), name='subject'),
+    path('', include('main_page.urls'), name='subject'),
     path('account/', include('account.urls'), name='account'),
     path('api/v1/', include(router.urls), name='api'),
 ]

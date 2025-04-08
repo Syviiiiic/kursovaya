@@ -2,29 +2,34 @@
 
 {% block title %}Log-in{% endblock %}
 {% block content %}
-    <h1>Log-in</h1>
-    {% if form.errors %}
-        <p>Your username and password didn't match.
-        Please try again.
-        </p>
-    {% else %}
-        <p>Please, use the following form to log-in:</p>
-    {% endif %}
-    <div class="login-form">
-        <form action="{% url 'account:login' %}" method="post">
-        {{ form.as_p }}
-        {% csrf_token %}
-        <!-- <input type="hidden" name="next" value="{% url 'main_page:subjects_list' %}"> -->
-        <p><input type="submit" value="Log in"></p>
-        </form>
-        <p>
-            <a href="{% url 'account:password_reset' %}">
-                Forgot your password?
-            </a>
-        </p>
-
-        <p>
-            If you don't have a account, <a href="{% url 'account:register' %}">Create this</a>.
-        </p>
+    <div class="login-block">
+        <div class="login-box" style="width: 544px; height: 447px; background: #081B29; border-radius: 30px; border: 6px #00ABF0 solid">
+            <div class="login-title"><h1><b>Log-in.</b></h1></div>
+            <div class="login-error">
+                {% if form.errors %}
+                    <p>Your username and password didn't match.
+                    Please try again.
+                    </p>
+                {% else %}
+                    <p>Please, use the following form to log-in:</p>
+                {% endif %}
+            </div>
+            <div class="login-form">
+                <form action="{% url 'account:login' %}" method="post">
+                {{ form.as_p }}
+                {% csrf_token %}
+                <p><input class="bn-box-login" type="submit" value="Log in"></p>
+                </form>
+            </div>
+            <div class="login-forgot-pass">
+                <a class="forgot" href="{% url 'account:password_reset' %}">
+                    Forgot your password?
+                </a>
+            </div>
+            <div class="login-register">
+                <h3 class="login-reg">If you don't have a account, </h3><a href="{% url 'account:register' %}">Create this</a>.
+            </div>
+        </div>
     </div>
 {% endblock %}
+

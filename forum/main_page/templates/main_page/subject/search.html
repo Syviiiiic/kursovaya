@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load forum_tags %}
+
+{% block title %}Search{% endblock %}
+
+{% block content %}
+    <div class="search-block">
+        <div class="search-box" style="background: #081B29; border-radius: 30px; border: 6px #00ABF0 solid">
+            <div class="search-title">
+                {% if query %}
+                    <div class="searh-result-title"><h1>Posts containing "{{ query }}"</h1></div>
+                    <div class="search-result-count"><h3>
+                        {% with results.count as total_results %}
+                        Found {{ total_results }} result{{ total_results|pluralize }}
+                        {% endwith %}
+                    </h3>
+                    </div>
+                    {% for subject in results %}
+                        <div class="search-result-sub" style="background: #081B29; border-radius: 30px; border: 6px #00ABF0 solid">
+                            <div class="search-result-title">  
+                                <h4>
+                                    <a href="{{ subject.get_absolute_url }}">
+                                    {{ subject.title }}
+                                    </a>
+                                </h4>
+                            </div>
+                            <div class="search-result-body">{{ subject.body }}</div>
+                        </div>
+                    {% empty %}
+                        <p>There are no results for your query.</p>
+                    {% endfor %}
+                    <div class="search-again"><p><a href="{% url "main_page:subject_search" %}">Search again</a></p></div>
+                {% else %}
+                <div class="search-first-block">
+                    <div class="search-for-post"><h1>Search for posts</h1></div>
+                    <div class="search-form"><form method="get">
+                        {{ form.as_p }}
+                        <input class="search-btn" type="submit" value="Search">
+                    </form>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

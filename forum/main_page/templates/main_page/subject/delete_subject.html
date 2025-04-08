@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}Delete subject{% endblock %}
+
+{% block content %}
+    <div class="delete-sub">
+        <div class="delete-sub-box" style="background: #081B29; border-radius: 30px; border: 6px #00ABF0 solid">
+            <div class="delete-sub-block">
+                <div class="delete-sub-title"><h1>Subject has been deleted.</h1></div>
+                <a class="btn-del" href="{% url 'main_page:subjects_list' %}">Back to home page.</a>    
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

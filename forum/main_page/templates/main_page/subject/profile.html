@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load forum_tags %}
+
+{% block title %}Profile{% endblock %}
+
+{% block content %}
+    <div class="profile-home">
+        <div class="side-profile" style="width: 250px; height: 500px; background: rgba(10.45, 48.71, 76.91, 0.75); border-radius: 30px; border: 3px #00abf0 solid">
+            <div class="head-of-side">
+                <div class="search-text">
+                    Search.
+                </div>
+                <div class="search-img">
+                    <a href="{% url 'main_page:subject_search' %}"><img class="img-search" src="{% static 'img/icons8-search.png' %}" width="30px" height="30px"></a>
+                </div>
+            </div>
+            <div style="margin-left: 6px; width: 230px; height: 0px; border-radius: 30px; border: 1px #081B29 solid"></div>
+            
+            <div class="list-new">
+                <div class="title-new-list" style="color: #00abf0;"><b>New.</b></div>
+                <div class="new-list-content">{% show_latest_subjects 3 %}</div>
+            </div>
+            <div style="margin-left: 6px; margin-top: 60px; width: 230px; height: 0px; border-radius: 30px; border: 1px #081B29 solid"></div>
+            <div class="list-liked">
+                <div class="title-like-list" style="color: #00abf0;"><b>Like.</b></div>
+                <div class="like-list-content">
+                    {% get_most_liked_subjects as most_liked_subjects %}
+                    <ul>
+                        {% for subject in most_liked_subjects %}
+                        <li>
+                            <a href="{{ subject.get_absolute_url }}">{{ subject.title|truncatewords_html:10 }}</a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div style="margin-left: 6px; margin-top: 10px; width: 230px; height: 0px; border-radius: 30px; border: 1px #081B29 solid"></div>
+            </div>
+        </div>
+        <div class="profile-user-block">
+            <div class="profile-user-box" style="background: #081B29; border-radius: 15px; border: 6px #00ABF0 solid">    
+                    <div class="profile-user-name"><h1>Profile's <h2 class="profile-user-name-username">{{ user.username }}</h2></h1></div>
+                    
+                    <div class="profile-user-list-subjects">
+                        <ul>
+                            {% for subject in subjects_user %}
+                                <li><a href="/{{ subject.publish.year }}/{{ subject.publish.month }}/{{ subject.publish.day }}/{{ subject.slug }}/">
+                                    {{ subject.title }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+            </div>
+        </div>
+    </div>  
+{% endblock %}

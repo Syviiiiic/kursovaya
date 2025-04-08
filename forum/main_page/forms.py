@@ -21,3 +21,7 @@ class SubjectForm(forms.ModelForm):
             'body': 'Body',
         }
 
+
+class SearchForm(forms.Form):
+    query = forms.CharField()
+    
